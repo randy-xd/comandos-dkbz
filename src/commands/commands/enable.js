@@ -8,7 +8,7 @@ module.exports = class EnableCommandCommand extends Command {
 			aliases: ['enable-command', 'cmd-on', 'command-on'],
 			group: 'commands',
 			memberName: 'enable',
-			description: 'Enables a command or command group.',
+			description: 'Habilita un comando o grupo de comandos.',
 			details: oneLine`
 				The argument must be the name/ID (partial or whole) of a command or command group.
 				Only administrators may use this command.
@@ -37,7 +37,7 @@ module.exports = class EnableCommandCommand extends Command {
 		if(args.cmdOrGrp.isEnabledIn(msg.guild, true)) {
 			return msg.reply(
 				`The \`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'} is already enabled${
-					group && !group.enabled ? `, but the \`${group.name}\` group is disabled, so it still can't be used` : ''
+					group && !group.enabled ? `, but the \`${group.name}\` el grupo está deshabilitado, por lo que aún no se puede usar` : ''
 				}.`
 			);
 		}
