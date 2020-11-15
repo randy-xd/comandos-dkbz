@@ -8,7 +8,7 @@ module.exports = class ListGroupsCommand extends Command {
 			aliases: ['list-groups', 'show-groups'],
 			group: 'commands',
 			memberName: 'groups',
-			description: 'Lists all command groups.',
+			description: 'Lista todos los grupos de comandos.',
 			details: 'Only administrators may use this command.',
 			guarded: true
 		});
