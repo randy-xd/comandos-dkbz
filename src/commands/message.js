@@ -135,7 +135,7 @@ class CommandMessage {
 
 		if(this.command.nsfw && !this.message.channel.nsfw) {
 			this.client.emit('commandBlocked', this, 'nsfw');
-			return this.reply(`The \`${this.command.name}\` command can only be used in NSFW channels.`);
+			return this.reply(`Los \`${this.command.name}\`solo se puede usar en canales NSFW.`);
 		}
 
 		// Ensure the user has permission to use the command
@@ -143,7 +143,7 @@ class CommandMessage {
 		if(!hasPermission || typeof hasPermission === 'string') {
 			this.client.emit('commandBlocked', this, 'permission');
 			if(typeof hasPermission === 'string') return this.reply(hasPermission);
-			else return this.reply(`You do not have permission to use the \`${this.command.name}\` command.`);
+			else return this.reply(`Lo siento no tiene permiso para usar el comando: \`${this.command.name}\` command.`);
 		}
 
 		// Ensure the client user has the required permissions
@@ -153,7 +153,7 @@ class CommandMessage {
 				this.client.emit('commandBlocked', this, 'clientPermissions');
 				if(missing.length === 1) {
 					return this.reply(
-						`I need the "${permissions[missing[0]]}" permission for the \`${this.command.name}\` command to work.`
+						`Lo siento necesita permiso de "${permissions[missing[0]]}" para usa el comando \`${this.command.name}\`.`
 					);
 				}
 				return this.reply(oneLine`
@@ -169,7 +169,7 @@ class CommandMessage {
 			const remaining = (throttle.start + (this.command.throttling.duration * 1000) - Date.now()) / 1000;
 			this.client.emit('commandBlocked', this, 'throttling');
 			return this.reply(
-				`You may not use the \`${this.command.name}\` command again for another ${remaining.toFixed(1)} seconds.`
+				`No puede utilizar el comando \`${this.command.name}\`  de nuevo por otro ${remaining.toFixed(1)} segundos.`
 			);
 		}
 
