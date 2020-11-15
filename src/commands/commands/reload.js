@@ -8,7 +8,7 @@ module.exports = class ReloadCommandCommand extends Command {
 			aliases: ['reload-command'],
 			group: 'commands',
 			memberName: 'reload',
-			description: 'Reloads a command or command group.',
+			description: 'Recarga un comando o grupo de comandos.',
 			details: oneLine`
 				The argument must be the name/ID (partial or whole) of a command or command group.
 				Providing a command group will reload all of the commands in that group.
