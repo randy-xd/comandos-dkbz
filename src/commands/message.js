@@ -241,9 +241,9 @@ class CommandMessage {
 
 				const invite = this.client.options.invite;
 				return this.reply(stripIndents`
-					An error occurred while running the command: \`${err.name}: ${err.message}\`
-					You shouldn't ever receive an error like this.
-					Please contact ${ownerList || 'the bot owner'}${invite ? ` in this server: ${invite}` : '.'}
+					Se produjo un error al ejecutar el comando: \`${err.name}: ${err.message}\`
+					Nunca debería recibir un error como este.
+					Por favor contactar ${ownerList || 'the bot owner'}${invite ? ` en este servidor: ${invite}` : '.'}
 				`);
 			}
 		}
@@ -290,7 +290,7 @@ class CommandMessage {
 				content = `\`\`\`${lang || ''}\n${discord.escapeMarkdown(content, true)}\n\`\`\``;
 				return this.editCurrentResponse(channelIDOrDM(this.message.channel), { type, content, options });
 			default:
-				throw new RangeError(`Unknown response type "${type}".`);
+				throw new RangeError(`Tipo de respuesta desconocido "${type}".`);
 		}
 	}
 
